@@ -1,6 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.urls import reverse_lazy
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse_lazy, reverse
+from .forms import AddStudentForm
+from .models import School,Student
+from django.views.generic.edit import FormView
+from django.shortcuts import render_to_response
 from django.views.generic import (View,TemplateView,
                                   ListView,DetailView,
                                   CreateView,UpdateView,
@@ -36,6 +40,15 @@ class SchoolDeleteView(DeleteView):
 
 
 
+# class AddStudent(FormView):
+#     template_name = 'basic_app/student_form.html'
+#     form_class = AddStudentForm
+#
+#     def form_valid(self,form):
+#                 print(form.instance.school)
+#
+#                 form.save()
+#                 return HttpResponseRedirect(reverse('basic_app:detail', kwargs={'pk':1}))
 
 
 

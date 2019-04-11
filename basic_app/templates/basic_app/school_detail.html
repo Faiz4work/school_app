@@ -13,20 +13,27 @@
         {% for student in school_detail.students.all %}
             <p>{{student.name}} who is {{student.age}} years old.</p>
         {% endfor %}
-        {% else %}        
+        {% else %}
         <p>Students are not available in this school</p>
         {% endif %}
     </div>
 
-<div class="container">
+<div class="container text-center">
 
-    <a class="btn btn-warning" href="{% url 'basic_app:update' pk=school_detail.pk %}">Update</a>
-    <a class="btn btn-danger" href="{% url 'basic_app:delete' pk=school_detail.pk %}">Delete</a>
+<a class="btn btn-primary disabled" href="">Add Student</a>
+<a class="btn btn-warning" href="{% url 'basic_app:update' pk=school_detail.pk %}">Update</a>
+<a class="btn btn-danger" href="{% url 'basic_app:delete' pk=school_detail.pk %}">Delete</a>
 
 </div>
 <style type="text/css">
   label{
     font-weight:bold;
+  }
+  div a{
+    margin-right:10px;
+  }
+  .btn-warning{
+    color:white;
   }
 
 </style>
